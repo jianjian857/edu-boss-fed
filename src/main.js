@@ -5,7 +5,7 @@ import store from './store'
 // 引入 Element 组件库
 import ElementUI from 'element-ui'
 // 引入 Element 主题文件
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css'
 
 // 引入全局样式
 import './styles/index.scss'

@@ -6,4 +6,8 @@
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped>
+  div {
+    background-color: $warning-color;
+  }
+</style>
