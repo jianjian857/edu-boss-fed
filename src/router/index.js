@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,8 @@ const routes = [
   {
     path: '/',
     component: () => import(/* webpackChunkName: "layout" */'@/views/layout/index'),
+    // 直接给某个路由设置，内部得到子路由都需要认证（包含当前页面）
+    meta: { requiresAuth: true },
     children: [
       {
         path: '',
@@ -65,6 +68,27 @@ const routes = [
 
 const router = new VueRouter({
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  // 验证 to 路由是否需要进行身份认证
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // 验证 Vuex 的 store 中的登录用户信息是否存储
+    if (!store.state.user) {
+      // 未登录，跳转登录页
+      return next({
+        name: 'login',
+        query: {
+          redirect: to.fullPath
+        }
+      })
+    } else {
+      // 已经登录，允许通过
+      next()
+    }
+  } else {
+    next()
+  }
 })
 
 export default router

@@ -1,5 +1,5 @@
 <template>
-  <div class="advert-space">广告位管理</div>
+  <div class="advert-space">广告位管理{{ $store.state.count }}</div>
 </template>
 
 <script>
