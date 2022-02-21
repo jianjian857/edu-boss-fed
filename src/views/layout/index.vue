@@ -39,14 +39,14 @@ export default {
   }
 
   .el-aside {
-    background-color: red;
+    background-color: #d3dce6;
   }
 
   .el-main {
-    background-color: skyblue;
+    background-color: #fff;
   }
 
   .el-header {
-    background-color: #fff;
+    background-color: #e9eef3;
   }
   </style>

@@ -33,6 +33,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "menu" */'@/views/menu/index')
       },
       {
+        path: '/menu/create',
+        name: 'menu-create',
+        component: () => import(/* webpackChunkName: "menuCreate" */'@/views/menu/create')
+      },
+      {
         path: '/resource',
         name: 'resource',
         component: () => import(/* webpackChunkName: "resource" */'@/views/resource/index')
