@@ -1,18 +1,17 @@
 <template>
-  <div class="menuCreate">
-    <create-or-edit></create-or-edit>
+  <div class="menu-edit">
+    <create-or-edit :is-edit="true"></create-or-edit>
   </div>
 </template>
 
 <script>
 import CreateOrEdit from './components/CreateOrEdit'
-
 export default {
-  name: 'menu-create',
+  name: 'MenuEdit',
   components: {
     CreateOrEdit
   }
 }
 </script>
 
-<style lang='scss' scoped></style>
+<style lang="scss" scoped></style>

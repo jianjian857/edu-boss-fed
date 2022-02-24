@@ -35,11 +35,11 @@
           <template slot-scope="scope">
             <el-button
               size="mini"
-              @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+              @click="handleEdit(scope.row)">编辑</el-button>
             <el-button
               size="mini"
               type="danger"
-              @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+              @click="handleDelete(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -60,11 +60,16 @@ export default {
     this.loadAllMenus()
   },
   methods: {
-    handleEdit () {
-
+    handleEdit (rowData) {
+      this.$router.push({
+        name: 'menu-edit',
+        params: {
+          id: rowData.id
+        }
+      })
     },
     handleDelete (rowData) {
-      this.$confirm('确认删除吗?', '删除')
+      this.$confirm('确认删除吗?', '删除提示')
         .then(async () => {
           // 发送确认删除请求
           const { data } = await deleteMenu(rowData.id)
